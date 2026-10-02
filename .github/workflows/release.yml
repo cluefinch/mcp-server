@@ -57,7 +57,7 @@ jobs:
           RELEASE_SHA: ${{ needs.prepare.outputs.commit_sha }}
         shell: bash
         run: test "$(git rev-parse HEAD)" = "$RELEASE_SHA"
-      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           python-version: ${{ matrix.python }}
       - run: uv python install
@@ -80,7 +80,7 @@ jobs:
           RELEASE_SHA: ${{ needs.prepare.outputs.commit_sha }}
         shell: bash
         run: test "$(git rev-parse HEAD)" = "$RELEASE_SHA"
-      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           python-version: '3.12.4'
       - run: uv python install
