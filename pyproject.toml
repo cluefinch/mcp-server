@@ -1,0 +1,109 @@
+[project]
+name = "cluefinch"
+version = "0.1.4"
+description = "Cluefinch MCP server with SearXNG web search, SSRF-safe page fetching, and BM25 research retrieval."
+readme = "README.md"
+authors = [{ name = "MicroNet" }]
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md"]
+requires-python = ">=3.12.4"  # CVE-2024-4032 ipaddress.is_global fix
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "deep-research",
+    "web-search",
+    "web-research",
+    "ai-agents",
+    "llm",
+    "local-llm",
+    "local-first",
+    "searxng",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Utilities",
+]
+
+dependencies = [
+    # server.py currently targets the MCP Python SDK v1 FastMCP API.
+    # Keep the stable v1 line until the project is explicitly migrated to v2.
+    "mcp>=1.30,<2",
+    "httpx>=0.27,<1",
+    "httpcore[asyncio]>=1.0,<2",
+    "trafilatura>=2.0,<3",
+    "beautifulsoup4>=4.12,<5",
+    "rank-bm25>=0.2.2,<0.3",
+    "pydantic>=2.11,<3",
+]
+
+[project.urls]
+Homepage = "https://github.com/cluefinch/mcp-server"
+Repository = "https://github.com/cluefinch/mcp-server"
+Issues = "https://github.com/cluefinch/mcp-server/issues"
+Security = "https://github.com/cluefinch/mcp-server/security/policy"
+
+[project.scripts]
+cluefinch = "mcp_search.server:main"
+
+[dependency-groups]
+dev = [
+    "packaging>=26.3",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.9",
+    "jsonschema>=4.20",
+    "mcp[cli]>=1.30,<2",
+]
+
+[build-system]
+requires = ["hatchling==1.32.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mcp_search"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/mcp_search", "/tests", "/scripts/*.py", "/examples/searxng/README.md",
+    "/examples/searxng/compose.yaml", "/examples/searxng/settings.yml",
+    "/pyproject.toml", "/uv.lock", "/server.json",
+    "/README.md", "/CHANGELOG.md", "/ROADMAP.md",
+    "/LICENSE", "/NOTICE", "/THIRD_PARTY_NOTICES.md", "/CONTRIBUTING.md",
+    "/CODE_OF_CONDUCT.md", "/SUPPORT.md", "/SECURITY.md", "/AGENTS.md",
+    "/docs/DEVELOPMENT.md", "/docs/REFERENCE.md", "/docs/RELEASING.md",
+    "/docs/SEARXNG_COMPLIANCE.md",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "RUF", "UP"]
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+
+[tool.uv]
+# Keep CI, release, and local locked-environment operations on one reviewed uv.
+required-version = ">=0.12.15,<0.13"

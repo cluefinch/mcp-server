@@ -1,0 +1,23 @@
+# Minimal local SearXNG configuration for Cluefinch MCP.
+# The Compose example binds SearXNG to 127.0.0.1 only.
+# Keep JSON enabled: Cluefinch uses the SearXNG JSON search API.
+
+use_default_settings:
+  engines:
+    keep_only: [google, google cse, brave, wikipedia, wikidata]
+
+engines:
+  - name: google
+    disabled: false
+  - name: google cse
+    weight: 0.25
+  - name: wikipedia
+    display_type: ["infobox", "list"]
+  - name: wikidata
+    display_type: ["infobox", "list"]
+
+server:
+  limiter: false
+
+search:
+  formats: [html, json]

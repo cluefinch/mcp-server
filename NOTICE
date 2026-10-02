@@ -1,0 +1,15 @@
+Cluefinch MCP (Python distribution: cluefinch)
+Copyright 2026 MicroNet
+
+Cluefinch is the brand; Cluefinch MCP is the product.
+Project repository: https://github.com/cluefinch/mcp-server
+
+The original project code is licensed under the Apache License, Version 2.0.
+See LICENSE for its terms and THIRD_PARTY_NOTICES.md for component boundaries.
+
+SearXNG is a separate upstream project and retains its own license.
+This project is not endorsed by the SearXNG project or the Apache Software
+Foundation. Product names are used to identify compatibility and origin.
+
+This file is informational and does not modify any license or grant rights
+to third-party code, data, or trademarks.

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support guidance
+    url: https://github.com/cluefinch/mcp-server/blob/main/SUPPORT.md
+    about: Read support scope and the information to include before opening an issue.
+  - name: Security policy
+    url: https://github.com/cluefinch/mcp-server/security/policy
+    about: Report vulnerabilities privately rather than through a public issue.

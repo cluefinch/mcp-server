@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.cluefinch/mcp",
+  "title": "Cluefinch MCP",
+  "description": "Local-first web research for AI agents with SearXNG search and SSRF-safe page retrieval.",
+  "version": "0.1.4",
+  "repository": {
+    "url": "https://github.com/cluefinch/mcp-server",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "cluefinch",
+      "version": "0.1.4",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

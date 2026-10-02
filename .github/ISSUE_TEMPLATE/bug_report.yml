@@ -1,0 +1,41 @@
+name: Bug report
+description: Report reproducible incorrect behavior in Cluefinch MCP.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting a reproducible problem. Do not include secrets, tokens, private URLs, or sensitive page contents.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Include the smallest safe sequence of commands or MCP calls that reproduces the issue.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Cluefinch version
+      placeholder: "0.1.4"
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version and platform
+      placeholder: "Python 3.12.4 / Ubuntu 24.04"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Sanitized logs or SearXNG details that materially help reproduce the issue.
