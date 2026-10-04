@@ -1,0 +1,56 @@
+name: Publish to MCP Registry
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to publish"
+        required: true
+        default: "v0.1.4"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout release tag
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.tag }}
+
+      - name: Verify tag and server version
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          TAG="${{ inputs.tag }}"
+          VERSION="${TAG#v}"
+
+          test "$(git describe --tags --exact-match)" = "$TAG"
+          test "$(jq -r '.version' server.json)" = "$VERSION"
+          test "$(jq -r '.packages[0].version' server.json)" = "$VERSION"
+          test "$(jq -r '.name' server.json)" = "io.github.cluefinch/mcp"
+
+      - name: Install mcp-publisher
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl -L \
+            "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_linux_amd64.tar.gz" \
+            | tar xz mcp-publisher
+
+          ./mcp-publisher --help
+
+      - name: Validate server.json
+        run: ./mcp-publisher validate
+
+      - name: Authenticate to MCP Registry
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish to MCP Registry
+        run: ./mcp-publisher publish
