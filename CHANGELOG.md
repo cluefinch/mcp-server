@@ -2,7 +2,7 @@
 
 Notable changes to Cluefinch MCP are recorded here.
 
-## 0.1.4 — Unreleased
+## 0.1.4 — 2026-10-04
 
 ### Added
 
