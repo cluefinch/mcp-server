@@ -1,7 +1,7 @@
 [project]
 name = "cluefinch"
 version = "0.1.4"
-description = "Cluefinch MCP server with SearXNG web search, SSRF-safe page fetching, and BM25 research retrieval."
+description = "Deep Research infrastructure for AI agents with web search, page reading, source navigation, and multi-source evidence collection."
 readme = "README.md"
 authors = [{ name = "MicroNet" }]
 license = "Apache-2.0"
