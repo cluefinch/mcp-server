@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.cluefinch/mcp",
   "title": "Cluefinch MCP",
-  "description": "Deep Research infrastructure for AI agents with web search, page reading, source navigation, and multi-source evidence collection.",
+  "description": "Deep Research for AI agents: web search, page reading, source navigation, and evidence collection.",
   "version": "0.1.4",
   "repository": {
     "url": "https://github.com/cluefinch/mcp-server",
