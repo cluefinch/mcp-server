@@ -331,7 +331,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.12,<5" },
-    { name = "httpcore", extras = ["asyncio"], specifier = ">=1.0,<2" },
+    { name = "httpcore", extras = ["asyncio"], specifier = ">=1.0.9,<2" },
     { name = "httpx", specifier = ">=0.27,<1" },
     { name = "mcp", specifier = ">=1.30,<2" },
     { name = "pydantic", specifier = ">=2.11,<3" },
