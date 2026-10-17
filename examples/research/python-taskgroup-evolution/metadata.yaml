@@ -1,0 +1,45 @@
+model:
+  display_name: "Qwen3.8 27B UD IQ4_XS"
+  loaded_model: "Qwen3.8-27B-GGUF:UD-IQ4_XS"
+  quantization: "UD-IQ4_XS"
+
+runtime:
+  name: "Unsloth"
+  version: "0.1.900-beta"
+
+agent:
+  name: "OpenCode"
+  version: "1.19.0"
+
+model_settings:
+  context_length: 65536
+  kv_cache_dtype: "q4_0"
+  speculative_decoding: "MTP"
+  temperature: 1
+  top_p: 0.95
+  top_k: 20
+  min_p: 0
+
+cluefinch:
+  version: "0.1.4"
+  commit: "14383fb015576244889ea86c3e6815ad67196d8a"
+
+run_date: "2026-10-11"
+
+tools_used:
+  - web_search
+  - web_fetch
+  - research_collect
+
+agent_instructions:
+  source: "https://github.com/cluefinch/mcp-server/blob/14383fb015576244889ea86c3e6815ad67196d8a/AGENTS.md"
+  modified: false
+
+session_integrity: "normalized"
+final_answer_integrity: "unedited"
+tool_outputs_integrity: "unedited"
+
+redactions: []
+normalizations:
+  - "Removed per-turn elapsed timing from assistant headings."
+  - "Replaced Created/Updated timestamps with a single run date."

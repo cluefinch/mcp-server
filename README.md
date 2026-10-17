@@ -378,6 +378,10 @@ When the agent opens a discovered URL, Cluefinch retrieves the page directly thr
 
 SearXNG remains a separate service, while Cluefinch MCP runs locally in the user's environment and does not require its own cloud retrieval service or built-in telemetry.
 
+## Research Examples
+
+Explore [real research sessions](./examples/research/) to see how AI agents use Cluefinch MCP to investigate technical questions, make their own research decisions, and adapt their strategies as the investigation unfolds.
+
 ## Configuring Cluefinch MCP
 
 Cluefinch MCP can be tuned to a particular environment and agent workload through environment variables prefixed with `MCP_SEARCH_`.
